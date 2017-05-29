@@ -68,8 +68,9 @@ module Clover
 
         protected
 
+        # will NOT add expand fields if params[:expand] === false
         def expanded_params params
-          params[:expand] ||= 'lineItems,payments,discounts'
+          params[:expand] = 'lineItems,payments,discounts' if params[:expand].nil?
           params
         end
       end

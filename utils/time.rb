@@ -6,6 +6,7 @@ module Clover
     module Time
       class << self
         # Clover::Utils::Time.at(123123123000)
+        # @return Time
         def at(clover_timestamp)
           ::Time.zone.at(clover_timestamp/1000)
         end

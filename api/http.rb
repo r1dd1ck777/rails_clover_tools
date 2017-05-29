@@ -27,11 +27,11 @@ module Clover
           request.body = options[:payload].to_json if options[:payload]
 
           response = get_response(uri, request)
-          LogJson.({
-            url: url,
-            payload: options[:payload],
-            response: response
-          })
+          Clover::Utils::LogJson.({
+              url: url,
+              payload: options[:payload],
+              response: response
+          }) unless Rails.env.production?
           response
         end
 
